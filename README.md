@@ -35,11 +35,14 @@ how to do this, we suggest to start with [VirtualBox](https://www.virtualbox.org
 
 ## Installation
 
-First, install [Docker](https://www.docker.com/) and [curl](https://curl.se/) (if you don't already have them installed).
+First, install [Docker](https://www.docker.com/), [git](https://git-scm.com/), 
+and [curl](https://curl.se/) (if you don't already have them installed).
 See [Docker's installation docs](https://docs.docker.com/engine/install/), 
-and use your OS package manager to install curl.
+and use your OS package manager to install curl and git.
 
-After you have Docker and curl installed, install AWS SAM CLI tool. 
+After you have Docker, git, and curl installed, install AWS SAM CLI tool. 
+
+### Linux
 
 Download [the AWS SAM CLI zip file](https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-linux-x86_64.zip). 
 From the location where this file is (probably `~/Downloads`), then you can run:
@@ -47,6 +50,23 @@ From the location where this file is (probably `~/Downloads`), then you can run:
 ```bash
 unzip aws-sam-cli-linux-x86_64.zip -d sam-installation
 sudo ./sam-installation/install
+```
+
+### Mac
+
+You will need to install [homebrew](https://brew.sh) if you don't already have it. 
+Follow [the homebrew installation instructions](https://docs.brew.sh/Installation).
+
+Then you can run:
+
+```bash
+brew tap aws/tap
+brew install aws-sam-cli
+```
+
+### Check that SAM CLI is working
+
+```bash
 sam --version
 ```
 
@@ -61,6 +81,9 @@ or reach out to your recruiter if you're really stuck.
 **Warning: you need to re-build the application each time you make 
 changes**. AWS SAM unfortunately does not currently support
 hot reloading.
+
+Clone this repo, and navigate to the [tracking-service](./tracking-service) subdirectory.
+You will run all the following commands from that location.
 
 To build:
 
